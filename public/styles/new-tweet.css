@@ -1,0 +1,28 @@
+#tweet-text {
+  background:transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+#tweet-input {
+  border-bottom: 5px solid black;
+  height: 50px;
+  font-size: larger;
+}
+
+#tweet-input > textarea {
+  width: 100%;
+}
+
+#tweet-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5em;
+}
+
+#tweet-bottom > button {
+  font-family: Bungee;
+  color: white;
+  background-color: #4056A1;
+}
