@@ -7,7 +7,7 @@
 
 #tweet-input {
   border-bottom: 5px solid black;
-  height: 50px;
+  height: 80px;
   font-size: larger;
 }
 
@@ -25,4 +25,13 @@
   font-family: Bungee;
   color: white;
   background-color: #4056A1;
+}
+
+.counter {
+  font-family: Bungee;
+}
+
+.red-count {
+  font-family: Bungee;
+  color: red;
 }
