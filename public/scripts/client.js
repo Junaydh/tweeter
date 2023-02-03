@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function(data) {
   const $tweet = `
@@ -14,7 +19,7 @@ const createTweetElement = function(data) {
               </div>
               <p>${data.user.handle}</p>
             </header>
-            <p id="actual-tweet">${data.content.text}</p>
+            <p id="actual-tweet">${escape(data.content.text)}</p>
             <footer>
               <p>${timeago.format(data.created_at)}</p>
               <div>
@@ -46,6 +51,14 @@ $(document).ready(function() {
 
   $('form').submit((event) => {
     event.preventDefault();
+
+    if ($('#tweet-text').val().length > 140) {
+      alert('Maximum character limit reached!');
+      return;
+    } else if ($('#tweet-text').val().length === 0) {
+      alert('Please enter some text before submitting!');
+      return;
+    }
     let postData = $('form').serialize();
 
     $.post('/tweets/', postData, (response) => {
