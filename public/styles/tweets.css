@@ -28,6 +28,11 @@ article > header > div {
   height: 83px;
 }
 
+article > header > div > img {
+  height: 50px;
+  margin-right: 5px;
+}
+
 article > header > p {
   color: lightgray;
 }
