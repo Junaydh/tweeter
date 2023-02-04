@@ -40,6 +40,11 @@ main {
 
   }
   main {
-    margin: 120px 50px
+    margin: 120px 25px
+  }
+  #top {
+    margin: 300px 25px;
+    justify-content: center;
+    align-items: center;
   }
 }

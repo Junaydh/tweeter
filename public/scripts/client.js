@@ -33,22 +33,6 @@ const createTweetElement = function(data) {
   return $tweet;
 };
 
-// const $charLimitErr = `
-//   <div id="error">
-//     <i class="fa-solid fa-triangle-exclamation"></i>
-//     <p>  You are over the maximum character limit!  </p>
-//     <i class="fa-solid fa-triangle-exclamation"></i>
-//   </div>
-// `
-
-// const $noTextErr = `
-//   <div id="error">
-//     <i class="fa-solid fa-triangle-exclamation"></i>
-//     <p>  Empty Tweet!  </p>
-//     <i class="fa-solid fa-triangle-exclamation"></i>
-//   </div>
-// `
-
 const renderTweets = function(tweets) {
   let container = $('#tweets-container');
   for (const tweet of tweets) {
