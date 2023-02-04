@@ -20,4 +20,6 @@ This repository is the starter code for the project: Students will fork and clon
 ## Screenshots
 
 !["Screenshot of the full one page"](https://github.com/Junaydh/tweeter/blob/master/docs/one-page.png)
+
+
 !["Screenshot of tweet composer form"](https://github.com/Junaydh/tweeter/blob/master/docs/compose-box.png)
