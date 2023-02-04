@@ -33,6 +33,22 @@ const createTweetElement = function(data) {
   return $tweet;
 };
 
+// const $charLimitErr = `
+//   <div id="error">
+//     <i class="fa-solid fa-triangle-exclamation"></i>
+//     <p>  You are over the maximum character limit!  </p>
+//     <i class="fa-solid fa-triangle-exclamation"></i>
+//   </div>
+// `
+
+// const $noTextErr = `
+//   <div id="error">
+//     <i class="fa-solid fa-triangle-exclamation"></i>
+//     <p>  Empty Tweet!  </p>
+//     <i class="fa-solid fa-triangle-exclamation"></i>
+//   </div>
+// `
+
 const renderTweets = function(tweets) {
   let container = $('#tweets-container');
   for (const tweet of tweets) {
@@ -48,22 +64,31 @@ $(document).ready(function() {
         renderTweets(res);
       });
   };
+  $('#error').hide();
 
   $('form').submit((event) => {
     event.preventDefault();
 
     if ($('#tweet-text').val().length > 140) {
-      alert('Maximum character limit reached!');
+      $('#error > p').text('  You are over the maximum character limit!   ')
+      $('#error').slideDown('slow')
+      setTimeout(() => {
+        $('#error').slideUp('slow');
+      }, 5000);
       return;
     } else if ($('#tweet-text').val().length === 0) {
-      alert('Please enter some text before submitting!');
+      $('#error > p').text('  Empty Tweet!!  ')
+      $('#error').slideDown('slow');
+      setTimeout(() => {
+        $('#error').slideUp('slow');
+      }, 5000);
       return;
     }
     let postData = $('form').serialize();
 
     $.post('/tweets/', postData, (response) => {
-      $('tweet-text').val('');
-
+      $('#tweet-text').val('');
+      $('#error').hide();
       loadTweets();
     })
   })
