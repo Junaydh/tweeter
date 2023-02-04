@@ -89,6 +89,7 @@ $(document).ready(function() {
     $.post('/tweets/', postData, (response) => {
       $('#tweet-text').val('');
       $('#error').hide();
+      $('.counter').html(140);
       loadTweets();
     })
   })
